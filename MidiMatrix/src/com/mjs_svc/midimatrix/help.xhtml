@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>MIDIMatrix help</title>
+    </head>
+    <body>
+        <h1>MIDIMatrix</h1>
+        <p><img src="http://www.cs.colostate.edu/~scott/java/project/help/MIDIMatrix-splash.gif" alt="MIDIMatrix" /></p>
+        <p>A matrix-based MIDI sequencer written in Java to run either as an
+            applet or stand-alone application.</p>
+
+        <h1><a name="matrices">Matrices</a></h1>
+        <p>A matrix is a square grid that describes a snatch of music in terms
+        of a coordinate plane.  This means that the X-axis (horizontal) denotes
+        time while the Y-axis (vertical) deontes pitch.  With MIDIMatrix, you
+        can change which pitches are used for each of the points on the Y-axis.
+        This allows you to create little bits of music that can be layered and
+        looped in the sequence.</p>
+
+        <h2><a name="matrices-noteentry">Note Entry</a></h2>
+        <p>Tones in the matrices are created with the mouse.  Behind the scenes,
+        a tone is made of two parts: a note-on event and a note-off event.  This
+        allows notes of any length up to the size of the matrix to be created.
+        Notes have a 'handle' at the beginning, indicated by a lighter-colored
+        square.</p>
+        <p>When clicking on the matrix, there are two possibilities:</p>
+            <ul>
+                <li><strong>A single click</strong> will toggle the note  in the
+                cell clicked.  If the cell is occupied, a note will be created
+                there, unless the click happens on the handle of a longer note,
+                in which case that entire note will be toggled off.</li>
+                <li><strong>A click-drag</strong> will create notes that last
+                from the start of the click until the end of the drag.  If the
+                drag goes over more than one row, notes will be created for all
+                the rows crossed.</li>
+            </ul>
+        <p>In this way, notes of any length can be created, deleted, or interrupted
+        with just two types of entry.</p>
+
+        <h2><a name="matrices-metadata">Pitches, Volume, and Instruments</a></h2>
+        <p>Music isn't just about pitches, however, so there is other information
+        that can be changed about a matrix.  You may select any MIDI instrument
+        for playback, and you may change the volume of each matrix separately.
+        Pitches are determined by a scale, such as chromatic (black and white
+        keys on a keyboard) or major pentatonic (just black keys on a keyboard).
+        There are many scales to chose from, so experiment with them to find a
+        sound you enjoy.</p>
+
+        <h2><a name="matrices-playback">Playback</a></h2>
+        <p>Matrices can be played back by themselves in order to preview just
+        that particular matrix.  Clicking 'Play' will play the matrix back just
+        once, while clicking 'Loop' will cause it to repeat.  You can edit the
+        matrix while it is playing, and it will update accordingly (i.e.: if
+        you edit while looping, the new note will play the next time the playback
+        point reaches it).</p>
+
+        <h1><a name="sequences">Sequences</a></h1>
+        <p>Sequences allow you to take matrices that have been created and string
+        them together in any order, layer them on top of each other, and loop
+        them repeatedly.</p>
+
+        <h2><a name="sequences-parts">Parts of a sequence</a></h2>
+        <p>A sequence is constructed like a music box.  Imagine that, instead of
+        the sound-producing tines of music box, you have buttons that, when
+        pressed, play something.  In this case, that something is the matrices
+        you've created.  In this way, you can layer any and all matrices or loop
+        them as many times as you want.  Each row signifies the different
+        matricies, which are played in the order of each column.</p>
+
+        <h2><a name="sequences-construction">Constructing a sequence</a></h2>
+        <p>Constructing a sequenence is similar to constructing a matrix, but
+        instead of having a fixed number of columns, you can add, remove, and
+        move columns at will.  The buttons at the top of the sequence control
+        this feature, while clicking on the sequence itself will enable a cell
+        similar to the matrix.  Clicking at the numbered header at the top of
+        each segment will select that segment for moving or deletion.</p>
+
+        <h2><a name="sequences-playback">Playback</a></h2>
+        <p>Sequences can be played back in order to hear the entire sequence at
+        once.  Clicking 'Play' will play the sequence back just
+        once, while clicking 'Loop' will cause it to repeat.  You can edit the
+        sequenbce while it is playing, and it will update accordingly (i.e.: if
+        you edit while looping, the new sequence will play the next time the
+        playback point reaches it).</p>
+
+        <h1><a name="controls">Controls</a></h1>
+        <p>There are a few additional controls available to change how
+        MIDIMatrix works.</p>
+
+        <h2><a name="controls-mididevices">MIDI devices</a></h2>
+        <p>If you are having troubles playing back through MIDI, then you can
+        see if there are other MIDI devices available for you to use.
+        MIDIMatrix only knows the General MIDI patches, so if you choose another
+        unique device such as an external keyboard, the playback sounds may not
+        match those listed in the instrument dropdown box.</p>
+
+        <h2><a name="controls-saving">Saving</a></h2>
+        <p>The ability to export your work as a MIDI file is available in certain
+        instances of the application.  This feature is not available in the
+        applet version of this program due to restrictions on Java applets that
+        disallow them from reading or writing any data on your computer.  When
+        run as a stand-alone application, however, you can export your work as
+        a MIDI file to listen to in most media players or share online.</p>
+
+        <h1><a name="about">About</a></h1>
+        <p>MIDIMatrix is a matrix-based MIDI sequencer written in Java to be
+            both an applet viewable on the web or a stand-alone application.  It
+            was written for CS150 at Colorado State University as a final
+            project in order to explore the interaction between music and
+            computers.</p>
+
+        <h2><a name="about-author">Author</a></h2>
+        <p>Matthew Scott wrote this program as a student at CSU majoring in
+            music composition.  He is a composer of varied styles of music, a
+            web developer, programmer, and music publisher, president of Matthew
+            J. Scott Music Publishing.</p>
+        <h2><a name="about-license">License</a></h2>
+        <p>MIDIMatrix<br />
+        Copyright &copy; 2009 Matthew Scott</p>
+        <p>This program is free software: you can redistribute it and/or modify
+            it under the terms of the GNU General Public License as published by
+            the Free Software Foundation, either version 3 of the License, or
+            (at your option) any later version.  This program is distributed in
+            the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+            even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+            PARTICULAR PURPOSE.  See the GNU General Public License for more
+            details.</p>
+        <p>See <a href="http://www.gnu.org/licenses/">the full license</a>.</p>
+
+
+    </body>
+</html>

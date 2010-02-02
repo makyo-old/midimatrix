@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="midimatrix" default="build" basedir=".">
+    <!--
+    MidiMatrix ant build script
+
+    * MIDIMatrix - Matrix-based MIDI sequencer
+    * Copyright (c) 2009 Matthew Scott
+    *
+    * This program is free software: you can redistribute it and/or modify
+    * it under the terms of the GNU General Public License as published by
+    * the Free Software Foundation, either version 3 of the License, or
+    * (at your option) any later version.
+    *
+    * This program is distributed in the hope that it will be useful,
+    * but WITHOUT ANY WARRANTY; without even the implied warranty of
+    * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    * GNU General Public License for more details.
+    *
+    * You should have received a copy of the GNU General Public License
+    * along with this program.  If not, see < http://www.gnu.org/licenses/ >.
+
+    @author Matthew Scott
+    @version $Id: build.xml 48 2009-11-12 22:16:13Z drab-makyo $
+    -->
+
+    <!-- Build and document -->
+    <target name="all" depends="build,javadoc" />
+
+    <!-- Execute depends, timestamp -->
+    <target name="build" depends="jar">
+        <tstamp />
+    </target>
+
+    <!-- Execute depends, jar result, change permissions -->
+    <target name="jar" depends="compile">
+        <condition property="jar.destfile">
+            <not>
+                <isset property="jar.destfile" />
+            </not>
+        </condition>
+        <jar destfile="${jar.destfile}">
+            <fileset dir="${build.dir}">
+                <include name="**/*.class" />
+                <include name="**/*.gif" />
+            </fileset>
+            <manifest>
+                <attribute name="Main-Class" value="com.mjs_svc.midimatrix.MidiMatrix" />
+            </manifest>
+        </jar>
+        <chmod perm="755" file="${jar.destfile}" />
+    </target>
+
+    <!-- Compile all java files, change permissions of class files -->
+    <target name="compile">
+        <condition property="build.dir" value=".">
+            <not>
+                <isset property="build.dir" />
+            </not>
+        </condition>
+        <mkdir dir="${build.dir}" />
+        <javac srcdir="." destdir="${build.dir}" includes="**/*.java" />
+        <copy todir="${build.dir}/com/mjs_svc/src/">
+            <fileset dir="./com/mjs_svc/midimatrix/">
+                <include name="*.gif" />
+            </fileset>
+        </copy>
+        <chmod perm="755">
+            <fileset dir="${build.dir}">
+                <include name="**/*.class" />
+            </fileset>
+            <dirset dir="${build.dir}">
+                <include name="**" />
+                <exclude name="**/.svn" />
+            </dirset>
+        </chmod>
+    </target>
+
+    <target name="javadoc">
+        <condition property="javadoc.destdir" value="../javadoc">
+            <not>
+                <isset property="javadoc.destdir" />
+            </not>
+        </condition>
+        <mkdir dir="${javadoc.destdir}" />
+        <javadoc2 destdir="${javadoc.destdir}">
+            <fileset dir=".">
+                <include name="**/*.java" />
+            </fileset>
+        </javadoc2>
+        <chmod perm="755">
+            <fileset dir="${javadoc.destdir}">
+                <include name="**" />
+            </fileset>
+            <dirset dir="${javadoc.destdir}">
+                <include name="**" />
+            </dirset>
+        </chmod>
+        <chmod perm="755" dir="${javadoc.destdir}" />
+    </target>
+
+    <target name="copyhelp">
+        <copy file="com/mjs_svc/midimatrix/help.xhtml" tofile="../help/index.html" />
+        <chmod perm="755" file="../help/index.html" />
+    </target>
+
+</project>
