@@ -29,7 +29,7 @@ import java.awt.event.*;
  * consistent across different areas of the application
  *
  * @author Matthew Scott
- * @version $Id: Player.java 45 2009-10-06 19:29:01Z drab-makyo $
+ * @version $Id$
  */
 public class Player {
 

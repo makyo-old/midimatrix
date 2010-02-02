@@ -27,7 +27,7 @@ import javax.swing.event.*;
  * The base tabbed pane for MidiMatrix
  *
  * @author Matthew Scott
- * @version $Id: MidiMatrixTabbedPane.java 50 2009-11-15 17:38:24Z mjs@mjs-svc.com $
+ * @version $Id$
  */
 public class MidiMatrixTabbedPane extends JTabbedPane {
 

@@ -29,7 +29,7 @@ import javax.swing.text.html.*;
  * Offer help to the user on using MIDIMatrix
  *
  * @author Matthew Scott
- * @version $Id: HelpPanel.java 42 2009-10-03 18:21:02Z drab-makyo $
+ * @version $Id$
  */
 public class HelpPanel extends JPanel {
 

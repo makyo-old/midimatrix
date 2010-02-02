@@ -26,7 +26,7 @@ import javax.swing.*;
 /**
  *
  * @author Matthew Scott
- * @version $Id: HomePanel.java 47 2009-11-12 21:28:02Z drab-makyo $
+ * @version $Id$
  */
 public class HomePanel extends JPanel {
     private JLabel intro, splash, attrib;

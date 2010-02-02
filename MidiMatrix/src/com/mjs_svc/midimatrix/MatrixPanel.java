@@ -28,7 +28,7 @@ import javax.sound.midi.*;
  * MatrixPanel contains the matrices and the tools to work with them.
  *
  * @author Matthew Scott
- * @version $Id: MatrixPanel.java 52 2009-11-19 21:59:51Z drab-makyo $
+ * @version $Id$
  */
 public class MatrixPanel extends JPanel {
 

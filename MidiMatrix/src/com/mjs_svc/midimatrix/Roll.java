@@ -28,7 +28,7 @@ import java.util.Vector;
  * is compiled into a MIDI sequence.
  *
  * @author Matthew Scott
- * @version $Id: Roll.java 52 2009-11-19 21:59:51Z drab-makyo $
+ * @version $Id$
  */
 public class Roll extends Sequence {
 

@@ -24,7 +24,7 @@ import java.util.*;
  * Scale is a simple representation of a scale for MMGrid
  *
  * @author Matthew Scott
- * @version $Id: Scale.java 52 2009-11-19 21:59:51Z drab-makyo $
+ * @version $Id$
  */
 public class Scale {
 

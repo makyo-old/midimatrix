@@ -30,7 +30,7 @@ import javax.sound.midi.*;
  * and file saving
  *
  * @author Matthew Scott
- * @version $Id: ControlPanel.java 45 2009-10-06 19:29:01Z drab-makyo $
+ * @version $Id$
  */
 public class ControlPanel extends JPanel {
 

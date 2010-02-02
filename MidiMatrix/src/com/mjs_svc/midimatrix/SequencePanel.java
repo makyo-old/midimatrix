@@ -28,7 +28,7 @@ import javax.sound.midi.InvalidMidiDataException;
  * SequencePanel controls the roll and the tools to work with it
  *
  * @author Matthew Scott
- * @version $Id: SequencePanel.java 51 2009-11-18 17:33:20Z drab-makyo $
+ * @version $Id$
  */
 public class SequencePanel extends JPanel {
 

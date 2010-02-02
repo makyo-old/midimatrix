@@ -20,7 +20,7 @@
     * along with this program.  If not, see < http://www.gnu.org/licenses/ >.
 
     @author Matthew Scott
-    @version $Id: build.xml 48 2009-11-12 22:16:13Z drab-makyo $
+    @version $Id$
     -->
 
     <!-- Build and document -->

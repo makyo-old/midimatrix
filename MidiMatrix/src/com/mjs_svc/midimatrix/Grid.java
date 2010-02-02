@@ -27,7 +27,7 @@ import java.util.*;
  * of any duration up to 16.  This information is compiled into a MIDI track.
  *
  * @author Matthew Scott
- * @version $Id: Grid.java 52 2009-11-19 21:59:51Z drab-makyo $
+ * @version $Id$
  */
 public class Grid {
 

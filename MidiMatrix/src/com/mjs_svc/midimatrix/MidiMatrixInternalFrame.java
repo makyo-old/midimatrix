@@ -27,7 +27,7 @@ import javax.swing.*;
  * The base desktop for MidiMatrix (using JInternalFrames)
  *
  * @author Matthew Scott
- * @version $Id: MidiMatrixInternalFrame.java 45 2009-10-06 19:29:01Z drab-makyo $
+ * @version $Id$
  */
 public class MidiMatrixInternalFrame extends JPanel {
     private Roll roll;

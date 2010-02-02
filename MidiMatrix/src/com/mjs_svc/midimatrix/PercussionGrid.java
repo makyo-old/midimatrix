@@ -25,7 +25,7 @@ import java.util.*;
  * A PercussionGrid is an extension of Grid used for MIDI drum instruments, which use
  * channel 10 specifically.  Instruments are different for this channel.
  * @author Matthew Scott
- * @version $Id: PercussionGrid.java 52 2009-11-19 21:59:51Z drab-makyo $
+ * @version $Id$
  */
 public class PercussionGrid extends Grid {
     // Data

@@ -22,7 +22,7 @@ import com.mjs_svc.midimatrix.*;
  * along with this program.  If not, see < http://www.gnu.org/licenses/ >.</p>
  *
  * @author Matthew Scott
- * @version $Id: MidiMatrixApplet.java 50 2009-11-15 17:38:24Z mjs@mjs-svc.com $
+ * @version $Id$
  */
 public class MidiMatrixApplet extends JApplet {
     private MidiMatrixTabbedPane pane;

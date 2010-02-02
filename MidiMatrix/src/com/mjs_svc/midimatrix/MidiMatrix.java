@@ -25,7 +25,7 @@ import java.awt.event.*;
  * along with this program.  If not, see < http://www.gnu.org/licenses/ >.</p>
  *
  * @author Matthew Scott
- * @version $Id: MidiMatrix.java 45 2009-10-06 19:29:01Z drab-makyo $
+ * @version $Id$
  */
 public class MidiMatrix extends JFrame {
 
