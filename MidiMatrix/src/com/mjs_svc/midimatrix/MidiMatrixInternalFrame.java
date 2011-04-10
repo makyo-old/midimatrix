@@ -255,11 +255,11 @@ public class MidiMatrixInternalFrame extends JPanel {
         progressFrame.setVisible(false);
         progressFrame.dispose();
 
-        ActionListener taskPerformer = new ActionListener() {
+        /*ActionListener taskPerformer = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 homeFrame.setVisible(false);
             }
         };
-        new Timer(5000, taskPerformer).start();
+        new Timer(5000, taskPerformer).start();*/
     }
 }

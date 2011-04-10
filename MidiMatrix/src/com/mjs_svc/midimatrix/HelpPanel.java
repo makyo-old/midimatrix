@@ -36,11 +36,11 @@ public class HelpPanel extends JPanel {
     public class HelpItem {
 
         private String name;
-        private URL url;
+        private String hash;
 
-        public HelpItem(String _name, String _url) throws MalformedURLException {
+        public HelpItem(String _name, String _hash) throws MalformedURLException {
             name = _name;
-            url = new URL(_url);
+            hash = _hash;
         }
 
         public void setName(String _name) {
@@ -52,12 +52,12 @@ public class HelpPanel extends JPanel {
             return name;
         }
 
-        public void setURL(String _url) throws MalformedURLException {
-            url = new URL(_url);
+        public void setHash(String _hash) throws MalformedURLException {
+            hash = _hash;
         }
 
-        public URL getURL() {
-            return url;
+        public String getHash() {
+            return hash;
         }
     }
     private JEditorPane helpPane;
@@ -65,7 +65,6 @@ public class HelpPanel extends JPanel {
     private JScrollPane treePane, scroller;
     private JSplitPane content;
     private DefaultMutableTreeNode top, category;
-    private String base = "http://www.cs.colostate.edu/~scott/java/project/";
 
     /**
      * Construct a new Help panel
@@ -74,37 +73,37 @@ public class HelpPanel extends JPanel {
         // Try to build our help tree, keeping an eye out for malformed URLs
         try {
             // root node
-            top = new DefaultMutableTreeNode(new HelpItem("MIDIMatrix", base + "help/"));
+            top = new DefaultMutableTreeNode(new HelpItem("MIDIMatrix", "top"));
 
             // matrices node
-            category = new DefaultMutableTreeNode(new HelpItem("Matrices", base + "help/#matrices"));
+            category = new DefaultMutableTreeNode(new HelpItem("Matrices", "matrices"));
             top.add(category);
-            category.add(new DefaultMutableTreeNode(new HelpItem("Note Entry", base + "help/#matrices-noteentry")));
-            category.add(new DefaultMutableTreeNode(new HelpItem("Pitches, volume, and instruments", base + "help/#matrices-metadata")));
-            category.add(new DefaultMutableTreeNode(new HelpItem("Playback", base + "help/#matrices-playback")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("Note Entry", "matrices-noteentry")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("Pitches, volume, and instruments", "matrices-metadata")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("Playback", "matrices-playback")));
 
             // sequences node
-            category = new DefaultMutableTreeNode(new HelpItem("Sequences", base + "help/#sequences"));
+            category = new DefaultMutableTreeNode(new HelpItem("Sequences", "sequences"));
             top.add(category);
-            category.add(new DefaultMutableTreeNode(new HelpItem("Parts of a sequence", base + "help/#sequences-parts")));
-            category.add(new DefaultMutableTreeNode(new HelpItem("Constructing a sequence", base + "help/#sequences-construction")));
-            category.add(new DefaultMutableTreeNode(new HelpItem("Playback", base + "help/#sequences-playback")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("Parts of a sequence", "sequences-parts")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("Constructing a sequence", "sequences-construction")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("Playback", "sequences-playback")));
 
             // controls node
-            category = new DefaultMutableTreeNode(new HelpItem("Controls", base + "help/#controls"));
+            category = new DefaultMutableTreeNode(new HelpItem("Controls", "controls"));
             top.add(category);
-            category.add(new DefaultMutableTreeNode(new HelpItem("MIDI devices", base + "help/#controls-mididevices")));
-            category.add(new DefaultMutableTreeNode(new HelpItem("Saving", base + "help/#controls-saving")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("MIDI devices", "controls-mididevices")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("Saving", "controls-saving")));
 
             // about node
-            category = new DefaultMutableTreeNode(new HelpItem("About", base + "help/#aboutl"));
+            category = new DefaultMutableTreeNode(new HelpItem("About", "about"));
             top.add(category);
-            category.add(new DefaultMutableTreeNode(new HelpItem("Author", base + "help/#about-author")));
-            category.add(new DefaultMutableTreeNode(new HelpItem("License", base + "help/#about-license")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("Author", "about-author")));
+            category.add(new DefaultMutableTreeNode(new HelpItem("License", "about-license")));
 
             // javadoc node
-            category = new DefaultMutableTreeNode(new HelpItem("JavaDoc", base + "javadoc/"));
-            top.add(category);
+            //category = new DefaultMutableTreeNode(new HelpItem("JavaDoc", base + "javadoc/"));
+            //top.add(category);
         } catch (MalformedURLException e) {
             top = new DefaultMutableTreeNode("ERROR");
         }
@@ -117,9 +116,9 @@ public class HelpPanel extends JPanel {
                 if (node == null) {
                     return;
                 }
-                try {
-                    helpPane.setPage(((HelpItem) node.getUserObject()).getURL());
-                } catch (IOException exc) {
+                //try {
+                    helpPane.scrollToReference(((HelpItem) node.getUserObject()).getHash());
+                /*} catch (IOException exc) {
 
                     JOptionPane.showMessageDialog(
                             null,
@@ -128,7 +127,7 @@ public class HelpPanel extends JPanel {
                             "Help Oops!",
                             JOptionPane.ERROR_MESSAGE,
                             null);
-                }
+                }*/
             }
         });
 
@@ -165,7 +164,7 @@ public class HelpPanel extends JPanel {
             }
         });
         try {
-            helpPane.setPage(((HelpItem) top.getUserObject()).getURL());
+            helpPane.setPage(HelpPanel.class.getResource("help.xhtml"));
         } catch (IOException e) {
             helpPane.setText("Couldn't fetch help page, sorry!  " + e.getMessage());
         }
