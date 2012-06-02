@@ -1,0 +1,19 @@
+MIDIMatrix
+==========
+
+MidiMatrix utilizes tone matrices to allow anyone to compose simple melodies and songs in an intuitive style. Currently, up to twelve 16x16 pitched matrices and four 16x16 percussion matrices may be sequenced in any number of ways to allow a wide variety of songs in most any style to be created, then exported to MIDI files.
+
+## About
+
+Tone matrices are a way of thinking about music that is similar to piano rolls, and is particularly friendly for computers.  The matrix is a grid (currently 16x16), and you can think of playback as a line moving from the left side of the grid to the right, and as it comes across an active grid area, it plays a tone, like a hole on a piano roll.  MIDIMatrix takes this idea and extends it one further by letting you stack treat individual matrices the same way: you may set up twelve pitched matrices and four percussion matrices, then on the Sequence pane, do something similar, except instead of with individual notes, with whole matrices.
+
+This is mostly a proof-of-concept done for a class in college (CS150 at Colorado State University).  The goal of the class was to be able to write a simple applet, but I dislike writing pointless code, so I wrote something that I could run with.  The goal was to come up with an applet/desktop app that would let you compose simple songs using the matrix idea, and share them in an online depot.  While I've mostly moved onto other pojects, I still come back to this one every now and then to poke and prod at it.  Additionally, I did a little bit of work on a full sequencer project that used [lilypond](http://lilypond.org) as a native file format, and intended to include portions of this project with that as a piano roll system.
+
+The directory MidiMatrix is a NetBeans project (back when entire projects were synced to the Kenai repository), and the MidiMatrixOnline directory is a Django project that is intended to be the online depot.  Both are pretty straight forward.  The code is not great; I was young :o)
+
+## Goals
+
+* Serializable projects
+* Sharing projects in an online repository
+* Get away from the limited grid-size, and allow specification of grid length/size, and number of grids
+* Write code like a grown up (at least part of the time)
